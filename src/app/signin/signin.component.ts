@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SignInService } from './signin.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './signin.component.html'
@@ -12,7 +13,8 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private signinService: SignInService
+    private signinService: SignInService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -27,7 +29,9 @@ export class SignInComponent implements OnInit {
     const password = this.loginForm.get('password').value;
 
     this.signinService.login(userName, password)
-      .subscribe(token => console.log(token));
+      .subscribe(token => {
+        this.router.navigate(['home']);
+      });
 
 
     console.log("userName " + userName);
