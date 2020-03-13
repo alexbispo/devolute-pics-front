@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { SignInComponent } from './signin/signin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignInService } from './signin/signin.service';
+import { SignUpComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignInComponent
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
