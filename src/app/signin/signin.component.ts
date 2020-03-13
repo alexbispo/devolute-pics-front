@@ -29,8 +29,11 @@ export class SignInComponent implements OnInit {
     const password = this.loginForm.get('password').value;
 
     this.signinService.login(userName, password)
-      .subscribe(token => {
-        this.router.navigate(['home']);
+      .subscribe(token => this.router.navigate(['home'])
+      , err => {
+        console.error(err);
+        this.loginForm.reset();
+        alert('Invalid user name or password');
       });
 
 
