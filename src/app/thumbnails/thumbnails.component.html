@@ -1,0 +1,17 @@
+<p class="text-center text-muted" *ngIf="!pictures.length">
+  Sorry, no pictures
+</p>
+
+<ol class="list-unstyled">
+  <li *ngFor="let cols of rows" class="row no-gutters p-0">
+      <div *ngFor="let picture of cols" class="col-4">
+          <a href="#">
+            <div class="card border-light text-center">
+                <div class="card-block text-justify">
+                  <img class="img-thumbnail" src="{{ picture.url | setPictureUrl }}">
+                </div>
+            </div>
+          </a>
+      </div>
+  </li>
+</ol>

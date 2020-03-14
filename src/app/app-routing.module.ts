@@ -4,6 +4,7 @@ import { SignInComponent } from './signin/signin.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './signin/auth.guard';
 import { SignUpComponent } from './signup/signup.component';
+import { PicturesResolver } from './home/pictures.resolver';
 
 const routes: Routes = [
   {
@@ -22,13 +23,16 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    resolve: {
+      pictures: PicturesResolver
+    }
   }
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true, enableTracing: true })],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
