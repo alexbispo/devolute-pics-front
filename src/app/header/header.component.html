@@ -1,0 +1,43 @@
+<header class="fixed-top">
+
+  <nav class="navbar navbar-light bg-white">
+      <a class="navbar-brand">
+        <i tabindex="0" (keyup.space)="toggle()" (click)="toggle()" class="fa fa-bars mr-2"></i>
+          DEVOLUTE PIC
+      </a>
+
+      <div [ngClass]="{ 'active-menu': isShown }">
+        <div class="menu-bar">
+            <i
+                tabindex="0"
+                class="fa fa-window-close"
+                (keyup.space)="toggle()"
+                (click)="toggle()">
+            </i>
+            <ul class="list-unstyled">
+              <li>
+                <a *ngIf="(user$ | async) as user" [routerLink]="['picture']">Upload</a>
+              </li>
+            </ul>
+    </div>
+        <div class="overlay" (click)="toggle()"></div>
+    </div>
+
+      <div *ngIf="(user$ | async) as user; else login">
+          <i class="fa fa-user-circle mr-1"></i>
+          <a class="mr-1">{{ user.name}}</a>
+          <a (click)="logout()">(Logout)</a>
+      </div>
+
+      <ng-template #login>
+          <span class="navbar-text">
+              <a [routerLink]="['']">Please, login!</a>
+          </span>
+      </ng-template>
+  </nav>
+  <!-- <div class="fixed-top">
+      <ap-loading></ap-loading>
+      <ap-alert></ap-alert>
+  </div> -->
+</header>
+

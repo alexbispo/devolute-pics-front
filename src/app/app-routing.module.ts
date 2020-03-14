@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './signin/auth.guard';
 import { SignUpComponent } from './signup/signup.component';
 import { PicturesResolver } from './home/pictures.resolver';
+import { PictureFormComponent } from './picture-form/picture-form.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,13 @@ const routes: Routes = [
     resolve: {
       pictures: PicturesResolver
     }
+  },
+  {
+    path: 'picture',
+    component: PictureFormComponent,
+    canActivate: [AuthGuard]
   }
+
 
 ];
 

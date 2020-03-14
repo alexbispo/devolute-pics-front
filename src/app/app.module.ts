@@ -12,6 +12,7 @@ import { ThumbnailsComponent } from './thumbnails/thumbnails.component';
 import { HomeComponent } from './home/home.component';
 import { RequestInterceptor } from './token/request.interceptor';
 import { SetPictureUrl } from './thumbnails/set-picture-url.pipe';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SetPictureUrl } from './thumbnails/set-picture-url.pipe';
     SignUpComponent,
     HomeComponent,
     ThumbnailsComponent,
-    SetPictureUrl
+    SetPictureUrl,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
