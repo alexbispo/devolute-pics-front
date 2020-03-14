@@ -19,16 +19,16 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      userName: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
 
   login() {
-    const userName = this.loginForm.get('userName').value;
+    const email = this.loginForm.get('email').value;
     const password = this.loginForm.get('password').value;
 
-    this.signinService.login(userName, password)
+    this.signinService.login(email, password)
       .subscribe(token => this.router.navigate(['home'])
       , err => {
         console.error(err);
@@ -37,7 +37,7 @@ export class SignInComponent implements OnInit {
       });
 
 
-    console.log("userName " + userName);
+    console.log("email " + email);
     console.log("password " + password);
   }
 

@@ -15,13 +15,13 @@ export class SignInService {
     private userService: UserService
   ) {}
 
-  login(userName: string, password: string) {
-    const body = {email: userName, password };
+  login(email: string, password: string) {
+    const body = {email, password };
     return this.http.post<Auth>("http://localhost:3000/api/v1/auth", body)
       .pipe(catchError(this.handleError))
       .pipe(tap(auth => {
         this.userService.setToken(auth.token);
-        console.log(`User ${userName} authenticated with token ${auth.token}`);
+        console.log(`User ${email} authenticated with token ${auth.token}`);
       }));
   }
 
