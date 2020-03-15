@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { SignInService } from './signin.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   templateUrl: './signin.component.html'
@@ -16,6 +17,14 @@ export class SignInComponent implements OnInit {
     private signinService: SignInService,
     private router: Router
   ) { }
+
+  get urlHomeImage() {
+    let urlImage = '/assets/img/home.jpg';
+    if (environment.production) {
+      urlImage = 'devolute-pics-front' + urlImage;
+    }
+    return urlImage;
+  }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
