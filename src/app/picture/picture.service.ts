@@ -10,6 +10,19 @@ export class PictureService {
 
   constructor(private http: HttpClient) {}
 
+  upload(file: File) {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    return this.http.post('http://localhost:3000/api/v1/pictures/',
+      formData,
+      {
+        observe: 'events',
+        reportProgress: true
+      }
+    );
+  }
+
   list(): Observable<Picture[]> | Observable<Observable<Picture[]>> | Promise<Observable<Picture[]>> {
     return this.http.get<Picture[]>('http://localhost:3000/api/v1/pictures/');
   }

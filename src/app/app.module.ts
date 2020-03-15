@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { RequestInterceptor } from './token/request.interceptor';
 import { SetPictureUrl } from './thumbnails/set-picture-url.pipe';
 import { HeaderComponent } from './header/header.component';
+import { PictureFormComponent } from './picture-form/picture-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HeaderComponent } from './header/header.component';
     HomeComponent,
     ThumbnailsComponent,
     SetPictureUrl,
-    HeaderComponent
+    HeaderComponent,
+    PictureFormComponent
   ],
   imports: [
     BrowserModule,
