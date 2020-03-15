@@ -21,7 +21,7 @@ export class SignInComponent implements OnInit {
   get urlHomeImage() {
     let urlImage = '/assets/img/home.jpg';
     if (environment.production) {
-      urlImage = 'devolute-pics-front' + urlImage;
+      urlImage = '/devolute-pics-front' + urlImage;
     }
     return urlImage;
   }
