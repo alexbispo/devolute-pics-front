@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  ApiUrl: 'https://serene-sierra-91355.herokuapp.com',
+  cloud: 'https://serene-sierra-91355.herokuapp.com'
 };
 
 /*

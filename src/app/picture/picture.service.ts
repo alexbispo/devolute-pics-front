@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Picture } from './picture';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
+const API = environment.ApiUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +17,7 @@ export class PictureService {
     const formData = new FormData();
     formData.append('file', file);
 
-    return this.http.post('http://localhost:3000/api/v1/pictures/',
+    return this.http.post(API + '/api/v1/pictures/',
       formData,
       {
         observe: 'events',
@@ -24,7 +27,7 @@ export class PictureService {
   }
 
   list(): Observable<Picture[]> | Observable<Observable<Picture[]>> | Promise<Observable<Picture[]>> {
-    return this.http.get<Picture[]>('http://localhost:3000/api/v1/pictures/');
+    return this.http.get<Picture[]>(API + '/api/v1/pictures/');
   }
 
 }

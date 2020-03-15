@@ -4,6 +4,9 @@ import { throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { UserService } from '../user/user.service';
 import { Auth } from './auth';
+import { environment } from 'src/environments/environment';
+
+const API = environment.ApiUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +20,7 @@ export class SignInService {
 
   login(email: string, password: string) {
     const body = {email, password };
-    return this.http.post<Auth>("http://localhost:3000/api/v1/auth", body)
+    return this.http.post<Auth>(API + '/api/v1/auth', body)
       .pipe(catchError(this.handleError))
       .pipe(tap(auth => {
         this.userService.setToken(auth.token);
