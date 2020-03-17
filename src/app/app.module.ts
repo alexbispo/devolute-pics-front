@@ -14,6 +14,8 @@ import { RequestInterceptor } from './token/request.interceptor';
 import { SetPictureUrl } from './thumbnails/set-picture-url.pipe';
 import { HeaderComponent } from './header/header.component';
 import { PictureFormComponent } from './picture-form/picture-form.component';
+import { LoadingComponent } from './loading/loading.component';
+import { LoadingInterceptor } from './loading/loading.intercptor';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { PictureFormComponent } from './picture-form/picture-form.component';
     ThumbnailsComponent,
     SetPictureUrl,
     HeaderComponent,
-    PictureFormComponent
+    PictureFormComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,11 @@ import { PictureFormComponent } from './picture-form/picture-form.component';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: RequestInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
       multi: true
     }
   ],

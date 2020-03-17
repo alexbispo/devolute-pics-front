@@ -36,7 +36,6 @@ export class PictureFormComponent implements OnInit  {
       .subscribe((event: HttpEvent<any>) => {
         if (event.type == HttpEventType.UploadProgress) {
           this.percentDone = Math.round(100 * event.loaded / event.total);
-          console.log(this.percentDone);
         } else if (event instanceof HttpResponse) {
           alert('Upload complete');
         }

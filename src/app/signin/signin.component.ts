@@ -20,9 +20,9 @@ export class SignInComponent implements OnInit {
 
   get urlHomeImage() {
     let urlImage = '/assets/img/home.jpg';
-    // if (environment.production) {
-    //   urlImage = '/devolute-pics-front' + urlImage;
-    // }
+    if (environment.production) {
+      urlImage = '/devolute-pics-front' + urlImage;
+    }
     return urlImage;
   }
 
@@ -44,10 +44,6 @@ export class SignInComponent implements OnInit {
         this.loginForm.reset();
         alert('Invalid user name or password');
       });
-
-
-    console.log("email " + email);
-    console.log("password " + password);
   }
 
 }

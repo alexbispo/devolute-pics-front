@@ -24,7 +24,6 @@ export class SignInService {
       .pipe(catchError(this.handleError))
       .pipe(tap(auth => {
         this.userService.setToken(auth.token);
-        console.log(`User ${email} authenticated with token ${auth.token}`);
       }));
   }
 
