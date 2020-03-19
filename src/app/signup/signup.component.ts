@@ -18,7 +18,7 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
-      userName: ['', Validators.required],
+      username: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
@@ -30,7 +30,10 @@ export class SignUpComponent implements OnInit {
 
       this.signupService.signUp(newUser)
         .subscribe(
-          () => this.router.navigate([''])
+          () => {
+            alert('Sign up successfully! Please, try login login again!');
+            this.router.navigate(['']);
+          }
           , err => {
             console.error(err);
             alert('Something bad happened; please try again later');

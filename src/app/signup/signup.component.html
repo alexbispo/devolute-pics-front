@@ -5,12 +5,12 @@
   <div class="form-group">
     <input
     type="text"
-    formControlName="userName"
+    formControlName="username"
     class="form-control"
-    placeholder="user name"
+    placeholder="user name (min 3, max 20 chars)"
     autofocus>
 
-    <small *ngIf="signupForm.get('userName').errors?.required"
+    <small *ngIf="signupForm.get('username').errors?.required"
     class="text-danger d-block mt-2">User name is required!</small>
   </div>
 
@@ -19,7 +19,7 @@
     type="email"
     formControlName="email"
     class="form-control"
-    placeholder="email"
+    placeholder="email (example@example.com)"
     autofocus>
 
     <small *ngIf="signupForm.get('email').errors?.required"
@@ -31,7 +31,7 @@
     formControlName="password"
     type="password"
     class="form-control"
-    placeholder="password">
+    placeholder="password (min 8, max 20 chars)">
 
     <small *ngIf="signupForm.get('password').errors?.required"
     class="text-danger d-block mt-2">Password is required!</small>
